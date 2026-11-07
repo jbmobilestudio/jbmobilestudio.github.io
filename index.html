@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JB Mobile Studio – Android apps</title>
+<meta name="description" content="Simple, focused Android apps by JB Mobile Studio. Download them from Google Play.">
+<meta property="og:title" content="JB Mobile Studio – Android apps">
+<meta property="og:description" content="Simple, focused Android apps. Download them from Google Play.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jbmobilestudio.github.io/">
+<link rel="canonical" href="https://jbmobilestudio.github.io/">
+<meta name="theme-color" content="#F3F5F9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1526" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232D52D6'/%3E%3Cpath d='M10 32h8l4-10 6 22 6-26 6 22 4-8h10' fill='none' stroke='%23fff' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F3F5F9;
+    --surface: #FFFFFF;
+    --ink: #15203B;
+    --muted: #5A6480;
+    --line: #DCE1EC;
+    --accent: #2D52D6;
+    --accent-ink: #FFFFFF;
+    --accent-soft: #E3E9FB;
+    --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --body: "Figtree", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    color-scheme: light;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0F1526;
+      --surface: #172038;
+      --ink: #E7EBF5;
+      --muted: #9AA4BF;
+      --line: #263152;
+      --accent: #8AA4FF;
+      --accent-ink: #0F1526;
+      --accent-soft: #1F2A4A;
+      color-scheme: dark;
+    }
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  html { scroll-behavior: smooth; scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 1.0625rem/1.6 var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+  .wrap { width: 100%; max-width: 1040px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 40px); }
+
+  /* Header */
+  header .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 22px; padding-bottom: 22px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 12px;
+    color: var(--ink); text-decoration: none;
+    font: 700 1.15rem/1 var(--display); letter-spacing: -0.01em;
+  }
+  .brand svg { width: 36px; height: 36px; flex: none; }
+  .lang {
+    display: flex; gap: 2px; padding: 3px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
+  }
+  .lang button {
+    border: 0; background: none; color: var(--muted);
+    font: 600 0.85rem/1 var(--body); padding: 8px 12px; border-radius: 999px; cursor: pointer;
+  }
+  .lang button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+
+  /* Hero */
+  .hero { padding: clamp(40px, 9vw, 96px) 0 clamp(32px, 6vw, 56px); }
+  .hero h1 {
+    font: 700 clamp(2.4rem, 6.4vw, 4.6rem)/1.02 var(--display);
+    letter-spacing: -0.035em;
+    margin: 0; max-width: 15ch;
+  }
+  .hero p {
+    color: var(--muted); font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    max-width: 52ch; margin: 22px 0 0;
+  }
+  .pulse { display: block; width: 100%; max-width: 560px; height: 64px; margin-top: 36px; color: var(--accent); }
+  .pulse path {
+    fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
+    stroke-dasharray: 1400; stroke-dashoffset: 1400;
+    animation: draw 1.6s cubic-bezier(.6,.05,.25,1) .2s forwards;
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .pulse path { animation: none; stroke-dashoffset: 0; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* Apps */
+  .apps { padding-bottom: clamp(48px, 8vw, 88px); }
+  .apps h2 {
+    font: 700 1.6rem/1.2 var(--display); letter-spacing: -0.02em;
+    margin: 0 0 20px; display: flex; align-items: baseline; gap: 12px;
+  }
+  .apps h2 .count { font: 500 1rem/1 var(--body); color: var(--muted); letter-spacing: 0; }
+  .app-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .app {
+    display: grid; grid-template-columns: 84px minmax(0, 1fr) auto;
+    gap: 24px; align-items: center;
+    padding: 28px 0; border-bottom: 1px solid var(--line);
+  }
+  .app-icon {
+    width: 84px; height: 84px; border-radius: 22px; overflow: hidden;
+    background: var(--accent); color: #fff;
+    display: grid; place-items: center;
+  }
+  .app-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .app-icon svg { width: 52px; height: 52px; }
+  .app h3 { font: 700 1.3rem/1.25 var(--display); letter-spacing: -0.015em; margin: 0; }
+  .app .desc { margin: 6px 0 0; color: var(--muted); max-width: 60ch; }
+  .app .meta { margin: 8px 0 0; font-size: 0.9rem; color: var(--muted); }
+  .app .meta a { color: var(--muted); }
+  .app .meta a:hover { color: var(--accent); }
+  .actions { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+  .play-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--ink); color: var(--bg);
+    padding: 12px 20px 12px 16px; border-radius: 14px;
+    text-decoration: none; font: 600 0.98rem/1.1 var(--body); white-space: nowrap;
+    transition: transform .15s ease, background-color .15s ease;
+  }
+  .play-btn:hover { background: var(--accent); color: var(--accent-ink); }
+  .play-btn:active { transform: scale(.98); }
+  .play-btn svg { width: 22px; height: 22px; flex: none; }
+  .play-btn small { display: block; font-weight: 400; font-size: 0.72rem; opacity: .8; margin-bottom: 2px; }
+
+  .soon {
+    display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 24px; align-items: center;
+    padding: 28px 0; border-bottom: 1px solid var(--line); color: var(--muted);
+  }
+  .soon .ghost {
+    width: 84px; height: 84px; border-radius: 22px;
+    border: 2px dashed var(--line); display: grid; place-items: center;
+    font: 500 2rem/1 var(--display); color: var(--line);
+  }
+  .soon strong { display: block; color: var(--ink); font: 600 1.05rem/1.4 var(--body); }
+
+  /* Contact */
+  .contact { background: var(--surface); border-top: 1px solid var(--line); }
+  .contact .wrap {
+    padding-top: clamp(40px, 6vw, 64px); padding-bottom: clamp(40px, 6vw, 64px);
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;
+  }
+  .contact h2 { font: 700 1.6rem/1.2 var(--display); letter-spacing: -0.02em; margin: 0 0 6px; }
+  .contact p { margin: 0; color: var(--muted); }
+  .mail {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 13px 20px; border-radius: 14px; border: 1px solid var(--line);
+    background: var(--accent-soft); color: var(--ink); text-decoration: none; font-weight: 600;
+  }
+  .mail:hover { border-color: var(--accent); }
+  .mail svg { width: 20px; height: 20px; color: var(--accent); }
+
+  footer { background: var(--surface); }
+  footer .wrap {
+    padding-top: 20px; padding-bottom: 28px; border-top: 1px solid var(--line);
+    font-size: 0.85rem; color: var(--muted);
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px;
+  }
+
+  @media (max-width: 720px) {
+    .app { grid-template-columns: 64px minmax(0, 1fr); gap: 16px 18px; align-items: start; }
+    .app-icon, .soon .ghost { width: 64px; height: 64px; border-radius: 17px; }
+    .app-icon svg { width: 40px; height: 40px; }
+    .actions { grid-column: 1 / -1; align-items: stretch; }
+    .play-btn { justify-content: center; }
+    .soon { grid-template-columns: 64px minmax(0, 1fr); gap: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="JB Mobile Studio">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="var(--accent)"/><path d="M10 32h8l4-10 6 22 6-26 6 22 4-8h10" fill="none" stroke="var(--accent-ink)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      JB Mobile Studio
+    </a>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-set-lang="pl" aria-pressed="false">PL</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <h1 data-i18n="heroTitle">Simple tools for your phone.</h1>
+      <p data-i18n="heroText">JB Mobile Studio is an independent developer making simple, fast tools for your phone.</p>
+      <svg class="pulse" viewBox="0 0 560 64" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 32 H150 l10 -6 l10 12 l10 -22 l10 32 l10 -40 l10 44 l10 -36 l10 26 l10 -16 l10 8 l10 -2 H560"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="apps" id="apps" aria-labelledby="apps-title">
+    <div class="wrap">
+      <h2 id="apps-title"><span data-i18n="appsTitle">Apps</span> <span class="count" id="app-count"></span></h2>
+      <ul class="app-list" id="app-list"></ul>
+      <noscript>
+        <p><a href="https://play.google.com/store/apps/details?id=io.github.jbmobilestudio.vibrationlab">Vibration Lab – Test &amp; Play on Google Play</a></p>
+      </noscript>
+    </div>
+  </section>
+</main>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <h2 data-i18n="contactTitle">Get in touch</h2>
+      <p data-i18n="contactText">Questions, bug reports or ideas for a new app? Send an email.</p>
+    </div>
+	<a class="mail" id="mail-link" href="#contact">
+	  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+	  <span id="mail-text"></span>
+	</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> JB Mobile Studio</span>
+    <span data-i18n="trademark">Google Play and the Google Play logo are trademarks of Google LLC.</span>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   YOUR APPS – to add a new app, copy one block and edit it.
+   package  – the app ID from Google Play (…details?id=THIS)
+   icon     – optional path to a 512×512 PNG, e.g. "vibrationlab/icon.png".
+              Leave empty ("") to use the built-in placeholder icon.
+   privacy  – path to the app's privacy policy page
+   ========================================================= */
+const APPS = [
+  {
+    name: "Vibration Lab – Test & Play",
+    package: "io.github.jbmobilestudio.vibrationlab",
+    icon: "",
+    privacy: "vibrationlab/privacy-policy.html",
+    description: {
+      en: "Check that your phone’s vibration motor works and try different vibration strengths and patterns.",
+      pl: "Sprawdź, czy silnik wibracji w telefonie działa, i wypróbuj różne siły i wzory wibracji."
+    },
+    pricing: {
+      en: "Free, contains ads",
+      pl: "Bezpłatna, zawiera reklamy"
+    }
+  }
+  // , { name: "Next app", package: "io.github.jbmobilestudio.nextapp", icon: "", privacy: "nextapp/privacy-policy.html",
+  //     description: { en: "…", pl: "…" }, pricing: { en: "Free", pl: "Bezpłatna" } }
+];
+
+const TEXT = {
+  en: {
+    heroTitle: "Simple tools for your phone.",
+    heroText: "JB Mobile Studio is an independent developer making simple, fast tools for your phone.",
+    appsTitle: "Apps",
+    count: n => n === 1 ? "1 app" : n + " apps",
+    getOn: "Get it on",
+    googlePlay: "Google Play",
+    privacy: "Privacy policy",
+    soonTitle: "More apps are on the way.",
+    soonText: "New releases will appear here and on Google Play.",
+    contactTitle: "Get in touch",
+    contactText: "Questions, bug reports or ideas for a new app? Send an email.",
+    trademark: "Google Play and the Google Play logo are trademarks of Google LLC."
+  },
+  pl: {
+    heroTitle: "Proste narzędzia dla Twojego telefonu.",
+    heroText: "JB Mobile Studio to niezależny twórca prostych i szybkich narzędzi na telefon.",
+    appsTitle: "Aplikacje",
+    count: n => n === 1 ? "1 aplikacja" : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20)) ? n + " aplikacje" : n + " aplikacji",
+    getOn: "Pobierz z",
+    googlePlay: "Google Play",
+    privacy: "Polityka prywatności",
+    soonTitle: "Kolejne aplikacje są w drodze.",
+    soonText: "Nowości pojawią się tutaj i w Google Play.",
+    contactTitle: "Kontakt",
+    contactText: "Pytania, zgłoszenia błędów albo pomysł na nową aplikację? Napisz e-mail.",
+    trademark: "Google Play i logo Google Play są znakami towarowymi Google LLC."
+  }
+};
+
+const PLACEHOLDER_ICON = '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 32h8l4-10 6 22 6-26 6 22 4-8h14" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const PLAY_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5Z" fill="currentColor"/></svg>';
+
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+}
+
+function render(lang) {
+  const t = TEXT[lang];
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const v = t[el.dataset.i18n];
+    if (typeof v === "string") el.textContent = v;
+  });
+  document.querySelectorAll("[data-set-lang]").forEach(b =>
+    b.setAttribute("aria-pressed", String(b.dataset.setLang === lang)));
+  document.getElementById("app-count").textContent = t.count(APPS.length);
+
+  const items = APPS.map(app => {
+    const play = "https://play.google.com/store/apps/details?id=" + encodeURIComponent(app.package) + "&hl=" + lang;
+    const icon = app.icon
+      ? '<img src="' + esc(app.icon) + '" alt="" width="84" height="84" loading="lazy">'
+      : PLACEHOLDER_ICON;
+    const meta = [];
+    if (app.pricing) meta.push(esc(app.pricing[lang] || app.pricing.en));
+    if (app.privacy) meta.push('<a href="' + esc(app.privacy) + '#' + lang + '">' + t.privacy + "</a>");
+    return '<li class="app">' +
+      '<div class="app-icon">' + icon + "</div>" +
+      "<div>" +
+        "<h3>" + esc(app.name) + "</h3>" +
+        '<p class="desc">' + esc(app.description[lang] || app.description.en) + "</p>" +
+        (meta.length ? '<p class="meta">' + meta.join("&ensp;|&ensp;") + "</p>" : "") +
+      "</div>" +
+      '<div class="actions">' +
+        '<a class="play-btn" href="' + play + '" target="_blank" rel="noopener" aria-label="' + esc(t.getOn + " " + t.googlePlay + ": " + app.name) + '">' +
+          PLAY_ICON + "<span><small>" + t.getOn + "</small>" + t.googlePlay + "</span></a>" +
+      "</div>" +
+    "</li>";
+  }).join("");
+
+  const soon = '<li class="soon"><div class="ghost" aria-hidden="true">+</div>' +
+    "<div><strong>" + t.soonTitle + "</strong>" + t.soonText + "</div></li>";
+
+  document.getElementById("app-list").innerHTML = items + soon;
+}
+
+function pickLang() {
+  try {
+    const saved = localStorage.getItem("lang");
+    if (saved && TEXT[saved]) return saved;
+  } catch (e) {}
+  return (navigator.language || "en").toLowerCase().startsWith("pl") ? "pl" : "en";
+}
+
+document.querySelectorAll("[data-set-lang]").forEach(btn =>
+  btn.addEventListener("click", () => {
+    const lang = btn.dataset.setLang;
+    try { localStorage.setItem("lang", lang); } catch (e) {}
+    render(lang);
+  }));
+
+document.getElementById("year").textContent = new Date().getFullYear();
+render(pickLang());
+const user = "jbmobilestudio", domain = "gmail.com";
+const addr = user + "@" + domain;
+document.getElementById("mail-link").href = "mailto:" + addr;
+document.getElementById("mail-text").textContent = addr;
+</script>
+</body>
+</html>
